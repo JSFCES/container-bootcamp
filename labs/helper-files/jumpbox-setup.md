@@ -40,7 +40,7 @@ gpgkey=https://www.mongodb.org/static/pgp/server-3.6.asc
 
 * Run `sudo systemctl start mongod`
 
-* Test connection `mongo localhost:27019` You should see a Welcome to MongoDB shell message
+* Test connection `mongo localhost:27019` You should see a Welcome to MongoDB shell message (and perhaps some WARNING messages - in most cases you can ignore these). 
 
 * Exit out of the MongoDB shell `> exit`
 
@@ -54,9 +54,7 @@ Create local azure-cli repository information.
 * Run `sudo sh -c 'echo -e "[azure-cli]\nname=Azure CLI\nbaseurl=https://packages.microsoft.com/yumrepos/azure-cli\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/azure-cli.repo'`
 
 Install with the yum install command.
-* Run `sudo yum install azure-cli-2.0.23-1.el7` 
-
-Avoid version 2.4 since it has a bug. Use version 2.3
+* Run `sudo yum install azure-cli` 
 
 ### GIT Tools
 Install git commandline tools
@@ -108,6 +106,25 @@ Install Helm - The Kubernetes Package Manager
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh 
 chmod 700 get_helm.sh
 ./get_helm.sh 
+```
+
+**WARNING** In some cases it's necessary to add the directory manually to your $PATH variable.
+
+```output
+helm not found. Is /usr/local/bin in your $PATH?
+Failed to install helm
+```
+
+To fix this issue you have to add /usr/local/bin to your $PATH variable
+
+```bash
+PATH=$PATH:/usr/local/bin
+```
+
+To make this permanently and not only for the current session you can add it to your .bash_profile which is executed everytime a bash is started.
+
+```bash
+echo 'export PATH=/usr/local/bin:$PATH' >>~/.bash_profile
 ```
 
 ## Clean up Docker
