@@ -52,14 +52,14 @@
     
     ```
 
-6. Create your AKS cluster in the resource group created above with 2 nodes, targeting Kubernetes version 1.10.8
+6. Create your AKS cluster in the resource group created above with 2 nodes, targeting Kubernetes version 1.11.6
     ```
     # set the location to one of the provided AKS locations (eg - centralus, eastus)
     
     LOCATION=eastus
 
     az aks create --name $CLUSTER_NAME --resource-group $NAME --node-count 2 \
-                  --kubernetes-version 1.10.8 --generate-ssh-keys --location $LOCATION 
+                  --kubernetes-version 1.11.6 --generate-ssh-keys --location $LOCATION 
     ```
  This command can take 5-25 minutes to run as it is creating the AKS cluster. Please be PATIENT...
 
@@ -72,7 +72,7 @@
     ```console
     Name      Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
     --------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------    ---
-    myaksrg   eastus      myaksrg          1.10.8                Succeeded            myaksrg-myaksrg-9a4f9a-7a0ba239.hcp.eastus.azmk8s.io
+    myaksrg   eastus      myaksrg          1.11.6                Succeeded            myaksrg-myaksrg-9a4f9a-7a0ba239.hcp.eastus.azmk8s.io
 
     ```
 
@@ -94,8 +94,8 @@ The `output` parameter is used display the output as a table to increase readabi
     
     ```console
     NAME                       STATUS    ROLES     AGE       VERSION
-    aks-nodepool1-26044360-0   Ready     agent     4m        v1.10.8
-    aks-nodepool1-26044360-1   Ready     agent     4m        v1.10.8
+    aks-nodepool1-26044360-0   Ready     agent     4m        v1.11.6
+    aks-nodepool1-26044360-1   Ready     agent     4m        v1.11.6
 
     ```
     
@@ -124,3 +124,6 @@ You should now have a Kubernetes cluster running with 2 nodes. You do not see th
 In the Azure portal, you will see the AKS cluster present under the Resourcegroup that you have mentioned in the previous commands. 
 
 You will also see an additional Resource Group with a naming convention `MC_<ResourceGroup>_<ClusterName>_<Location>` in the Azure portal. This is a new Resource Group that gets created automatically which contains all the infrastructure components of your AKS cluster. 
+
+
+   ##### [Return back to BootCamp Table of Contents (Main Page)](/README.md)

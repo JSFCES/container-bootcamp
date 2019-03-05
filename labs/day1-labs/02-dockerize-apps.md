@@ -49,6 +49,8 @@ For the first container, we will be creating a Dockerfile from scratch. For the 
     ```
     **You can ignore the NPM warnings generated while the image is being built.**
 
+   **If you have an error regarding "Unable to evaluate symlinks, No such file or directory". Ensure the file name is correct including case-sensitivity**
+
 3. Once the above command is completed, validate that the image was created with command: `docker images`
    ```
    docker images
@@ -127,6 +129,7 @@ docker network create --subnet=172.18.0.0/16 my-network
 
     ```
     root@61f9894538d0:/# ./import.sh
+    
     2018-01-10T19:26:07.746+0000	connected to: localhost
     2018-01-10T19:26:07.761+0000	imported 4 documents
     2018-01-10T19:26:07.776+0000	connected to: localhost
@@ -249,3 +252,7 @@ v1: digest: sha256:f84eba148dfe244f8f8ad0d4ea57ebf82b6ff41f27a903cbb7e3fbe377bb2
 ![img](img/02_acr_repositories.png)
 
 2. Click on the Repository name and under 'tags' section, you will see "v1" listed.
+
+
+
+   ##### [Return to BootCamp Table of Contents (Main Page)](/README.md)
